@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+'use strict';
+
+var CLI       = require('../lib/cli');
+var Changelog = require('../lib');
+
+CLI.parse(process.argv);
+
+return Changelog.generate(CLI)
+.then(function (changelog) {
+  console.log(changelog);
+})
+.catch(function (err) {
+  console.log(err);
+});
