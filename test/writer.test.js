@@ -79,6 +79,27 @@ describe('writer', function () {
       });
     });
 
+    it('groups all uncommon types together', function () {
+      var commits = [
+        { type: 'uncommon', category: 'testing', subject: 'did some testing', hash: '1234567890' },
+        { type: 'unknown', category: 'testing', subject: 'did some more testing', hash: '1234567890' }
+      ];
+
+      return Writer.markdown(VERSION, commits, {})
+      .then(function (changelog) {
+        return changelog.split('\n');
+      })
+      .filter(function (line) {
+        return line.indexOf('#####') > -1;
+      })
+      .tap(function (lines) {
+        Expect(lines).to.have.length(1);
+      })
+      .map(function (line) {
+        Expect(line).to.eql('##### Other Changes');
+      });
+    });
+
     it('keeps a commit category on one line if there is only one commit in it', function () {
       var category = 'testing';
       var subject = 'did some testing';
