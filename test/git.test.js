@@ -3,13 +3,13 @@
 var Bluebird = require('bluebird');
 var CP       = require('child_process');
 var Expect   = require('chai').expect;
-var File     = require('fs');
+var Fs       = require('fs');
 var Sinon    = require('sinon');
 
 var Git = require('../lib/git');
 
-var VALID_COMMITS   = File.readFileSync(__dirname + '/data/git/valid-commits.txt', 'utf-8');
-var INVALID_COMMITS = File.readFileSync(__dirname + '/data/git/invalid-commits.txt', 'utf-8');
+var VALID_COMMITS   = Fs.readFileSync(__dirname + '/data/git/valid-commits.txt', 'utf-8');
+var INVALID_COMMITS = Fs.readFileSync(__dirname + '/data/git/invalid-commits.txt', 'utf-8');
 
 describe('git', function () {
 

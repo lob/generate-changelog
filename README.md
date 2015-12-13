@@ -3,16 +3,16 @@
 [![Build Status](https://travis-ci.org/lob/generate-changelog.svg)](https://travis-ci.org/lob/generate-changelog)
 [![Coverage Status](https://coveralls.io/repos/lob/generate-changelog/badge.svg?branch=master&service=github)](https://coveralls.io/github/lob/generate-changelog?branch=master)
 
-Generate a changelog from git commits. This is meant to be used so that for every patch, minor, or major version, you update the changelog, run `npm version`, and then the git tag refers to the commit that updated both the changelog and version.
+Generate a changelog from git commits. This is meant to be used so that for every patch, minor, or major version, you update the changelog _prior_ to running `npm version` so that the git tag contains the commit that updated both the changelog and version.
 
 ## Installation
 
-You can either install this module globally to be used for all of your repos on your local machine, or you can install it as a dev dependency to be referenced in your npm scripts.
+You can either install it as a dev dependency to be referenced in your npm scripts, or you can install this module globally to be used for all of your repos on your local machine.
 
 ```bash
-$ npm i generate-changelog -g # install it globally
-# OR
 $ npm i generate-changelog -D # install it as a dev dependency
+# OR
+$ npm i generate-changelog -g # install it globally
 ```
 
 ## Usage
@@ -29,17 +29,17 @@ Where `type` is one of the following:
 * `docs`
 * `feat`
 * `fix`
+* `other`
 * `refactor`
 * `style`
 * `test`
 
-And `category` can be anything of your choice.
+And `category` can be anything of your choice. If you use a type not found in the list (but it still follows the same format of the message), it'll be grouped under `other`.
 
-You can either run this module as a CLI app that prints to stdout (recommended):
+You can either run this module as a CLI app that prepends the new logs to a file (recommended):
 
 ```bash
 $ changelog -h
-
 
   Usage: generate [options]
 
@@ -52,19 +52,20 @@ $ changelog -h
     -p, --patch           create a patch changelog
     -m, --minor           create a minor changelog
     -M, --major           create a major changelog
-    -u, --repo-url [url]  specify the repo URL for commit links
+    -f, --file [file]     file to write to, defaults to ./CHANGELOG.md, use - for stdout
+    -u, --repo-url [url]  specify the repo URL for commit links, defaults to checking the package.json
 
 ```
 
-Or you can write a script that calls the `generate` function:
+Or you can write a script that calls the `generate` function and does whatever you want with the new logs:
 
 ```js
 var Changelog = require('generate-changelog');
-var File      = require('fs');
+var Fs        = require('fs');
 
 return Changelog.generate({ patch: true, repoUrl: 'https://github.com/lob/generate-changelog' })
 .then(function (changelog) {
-  File.writeFileSync('./CHANGELOG.md', changelog);
+  Fs.writeFileSync('./CHANGELOG.md', changelog);
 });
 ```
 
@@ -73,9 +74,9 @@ return Changelog.generate({ patch: true, repoUrl: 'https://github.com/lob/genera
 The way that I would recommend using this module would be the way it's being used in this module: as npm scripts. You should install it as a dev dependency and then add the following to the `scripts` object in your `package.json`:
 
 ```json
-    "changelog:major": "./bin/generate -M >> CHANGELOG.md && git commit -am 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
-    "changelog:minor": "./bin/generate -m >> CHANGELOG.md && git commit -am 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
-    "changelog:patch": "./bin/generate -p >> CHANGELOG.md && git commit -am 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+"release:major": "changelog -M && git commit -am 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+"release:minor": "changelog -m && git commit -am 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+"release:patch": "changelog -p && git commit -am 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
 ```
 
 ## Testing

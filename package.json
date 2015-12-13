@@ -11,11 +11,10 @@
     "test": "test"
   },
   "scripts": {
-    "changelog:major": "./bin/generate -M >> CHANGELOG.md && git commit -am 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
-    "changelog:minor": "./bin/generate -m >> CHANGELOG.md && git commit -am 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
-    "changelog:patch": "./bin/generate -p >> CHANGELOG.md && git commit -am 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+    "release:major": "./bin/generate -M && git commit -am 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+    "release:minor": "./bin/generate -m && git commit -am 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+    "release:patch": "./bin/generate -p && git commit -am 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "enforce": "istanbul check-coverage --statement 100 --branch 100 --function 100 --lines 100",
     "lint": "eslint .",
     "test": "NODE_ENV=test istanbul cover _mocha -- test --recursive --timeout 30000",
     "test-no-cover": "NODE_ENV=test mocha test --recursive --timeout 30000"
