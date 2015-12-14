@@ -11,9 +11,9 @@
     "test": "test"
   },
   "scripts": {
-    "release:major": "./bin/generate -M && git commit -am 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
-    "release:minor": "./bin/generate -m && git commit -am 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
-    "release:patch": "./bin/generate -p && git commit -am 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+    "release:major": "./bin/generate -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+    "release:minor": "./bin/generate -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+    "release:patch": "./bin/generate -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "lint": "eslint .",
     "test": "NODE_ENV=test istanbul cover _mocha -- test --recursive --timeout 30000",

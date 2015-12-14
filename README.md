@@ -74,9 +74,9 @@ return Changelog.generate({ patch: true, repoUrl: 'https://github.com/lob/genera
 The way that I would recommend using this module would be the way it's being used in this module: as npm scripts. You should install it as a dev dependency and then add the following to the `scripts` object in your `package.json`:
 
 ```json
-"release:major": "changelog -M && git commit -am 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
-"release:minor": "changelog -m && git commit -am 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
-"release:patch": "changelog -p && git commit -am 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+"release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+"release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+"release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
 ```
 
 ## Testing
