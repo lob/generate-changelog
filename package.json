@@ -47,7 +47,7 @@
     "chai-as-promised": "^5.1.0",
     "coveralls": "^2.11.6",
     "eslint": "^1.10.3",
-    "eslint-config-lob": "^1.0.1",
+    "eslint-config-lob": "1.0.x",
     "istanbul": "^0.4.1",
     "mocha": "^2.3.4",
     "sinon": "^1.17.2"
