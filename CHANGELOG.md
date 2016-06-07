@@ -1,3 +1,9 @@
+#### 1.0.2 (2016-6-7)
+
+##### Bug Fixes
+
+* **git:** enfore lowercase commit.type ([d53e497a](https://github.com/lob/generate-changelog/commit/d53e497a69179e9ba2d42416293285f4163c0b97))
+
 #### 1.0.1 (2016-2-10)
 
 ##### Documentation Changes
