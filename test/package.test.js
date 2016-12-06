@@ -141,20 +141,6 @@ describe('package', function () {
       });
     });
 
-    it('errs if patch, minor, and major are all false', function () {
-      var options = {};
-
-      return Package.calculateNewVersion(options)
-      .bind({})
-      .catch(function (err) {
-        this.err = err;
-      })
-      .finally(function () {
-        Expect(this.err).to.be.instanceof(Error);
-        Expect(this.err.message).to.eql('patch, minor, or major needs to be set');
-      });
-    });
-
   });
 
 });
