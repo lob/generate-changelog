@@ -1,3 +1,9 @@
+### 1.1.0 (2016-12-15)
+
+##### New Features
+
+* **version:** remove the incrementation flag requirement ([a8b45090](https://github.com/lob/generate-changelog/commit/a8b450901df9a7d0e5817b810ef7de2bcb12b4df))
+
 #### 1.0.2 (2016-6-7)
 
 ##### Bug Fixes
