@@ -122,7 +122,7 @@ describe('writer', function () {
       });
     });
 
-    it('breaks a commit category onto its own line if there are more than one commit in it', function () {
+    it('breaks a commit category onto its own line if there is more than one commit in it', function () {
       var category = 'testing';
       var commits = [
         { type: 'feat', category: category, subject: 'did some testing', hash: '1234567890' },
@@ -141,6 +141,26 @@ describe('writer', function () {
         var regex = new RegExp('^\\* \\*\\*' + category + ':\\*\\*$');
 
         Expect(line).to.match(regex);
+      });
+    });
+
+    it('omits commit category if there was no category defined', function () {
+      var hash = '1234567890';
+      var commits = [
+        { type: 'feat', category: 'testing', subject: 'did some testing', hash: hash },
+        { type: 'test', category: '', subject: 'other changes', hash: hash }
+      ];
+
+      return Writer.markdown(VERSION, commits, {})
+      .then(function (changelog) {
+        return changelog.split('\n');
+      })
+      .filter(function (line) {
+        return line.indexOf(hash.slice(0, 8)) > -1;
+      })
+      .then(function (lines) {
+        Expect(lines[0]).to.equal('* **testing:** did some testing (12345678)');
+        Expect(lines[1]).to.equal('* other changes (12345678)');
       });
     });
 
