@@ -114,12 +114,12 @@ describe('package', function () {
       Package.getUserPackage.restore();
     });
 
-    it('bumps the patch version if patch is true', function () {
-      var options = { patch: true };
+    it('bumps the major version if major is true', function () {
+      var options = { major: true };
 
       return Package.calculateNewVersion(options)
       .then(function (version) {
-        Expect(version).to.eql('1.2.4');
+        Expect(version).to.eql('2.0.0');
       });
     });
 
@@ -132,15 +132,21 @@ describe('package', function () {
       });
     });
 
-    it('bumps the major version if major is true', function () {
-      var options = { major: true };
+    it('bumps the patch version if patch is true', function () {
+      var options = { patch: true };
 
       return Package.calculateNewVersion(options)
       .then(function (version) {
-        Expect(version).to.eql('2.0.0');
+        Expect(version).to.eql('1.2.4');
       });
     });
 
+    it('leaves the version untouched if none of three options is true', function () {
+      return Package.calculateNewVersion()
+      .then(function (version) {
+        Expect(version).to.eql('1.2.3');
+      });
+    });
   });
 
 });
