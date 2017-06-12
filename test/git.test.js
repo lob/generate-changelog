@@ -63,7 +63,7 @@ describe('git', function () {
 
       return Git.getCommits()
       .then(function (commits) {
-        Expect(commits).to.have.length(1);
+        Expect(commits).to.have.length(4);
         Expect(commits[0]).to.have.property('type');
         Expect(commits[0]).to.have.property('category');
         Expect(commits[0]).to.have.property('subject');
@@ -79,6 +79,18 @@ describe('git', function () {
       return Git.getCommits()
       .then(function (commits) {
         Expect(commits).to.have.length(0);
+        CP.execAsync.restore();
+      });
+    });
+
+    it('skips any excluded commit types', function () {
+      Sinon.stub(CP, 'execAsync')
+        .onFirstCall().returns(Bluebird.resolve('v1.2.3'))
+        .onSecondCall().returns(Bluebird.resolve(VALID_COMMITS));
+
+      return Git.getCommits({ exclude: ['chore', 'style'] })
+      .then(function (commits) {
+        Expect(commits).to.have.length(2);
         CP.execAsync.restore();
       });
     });
