@@ -1,3 +1,17 @@
+### 1.2.0 (2017-6-12)
+
+##### New Features
+
+* **exclude:** add `-x, --exclude` option ([fc31e9a8](https://github.com/lob/generate-changelog/commit/fc31e9a8c69f163d77c995e5bc1bddb10c355258))
+
+##### Bug Fixes
+
+* **writer:** don't print category if empty ([a859a9b6](https://github.com/lob/generate-changelog/commit/a859a9b67d17c88a3adc669fff1f9f999afdb4cc))
+
+##### Tests
+
+* **package:** fix coverage for lib/package.js ([006a2a04](https://github.com/lob/generate-changelog/commit/006a2a04cc3df009d18e7fc99f1cd96a9d108624))
+
 ### 1.1.0 (2016-12-15)
 
 ##### New Features
