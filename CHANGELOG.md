@@ -1,3 +1,9 @@
+#### 1.2.1 (2017-6-13)
+
+##### Bug Fixes
+
+* **exclude:** REALLY exclude listed commit types ([9f836575](https://github.com/lob/generate-changelog/commit/9f8365750af98d1e540543abecc3e4c51d3fbf9a))
+
 ### 1.2.0 (2017-6-12)
 
 ##### New Features
