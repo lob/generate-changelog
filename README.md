@@ -27,12 +27,16 @@ type(category): description
 
 Where `type` is one of the following:
 
+* `build`
+* `ci`
 * `chore`
 * `docs`
 * `feat`
 * `fix`
 * `other`
+* `perf`
 * `refactor`
+* `revert`
 * `style`
 * `test`
 
@@ -54,6 +58,7 @@ $ changelog -h
     -p, --patch           create a patch changelog
     -m, --minor           create a minor changelog
     -M, --major           create a major changelog
+    -x, --exclude         exclude selected commit types (comma separated)
     -f, --file [file]     file to write to, defaults to ./CHANGELOG.md, use - for stdout
     -u, --repo-url [url]  specify the repo URL for commit links, defaults to checking the package.json
 
