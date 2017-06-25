@@ -1,3 +1,13 @@
+### 1.3.0 (2017-06-25)
+
+##### New Features
+
+* **writer:** update commit types ([8945027b](https://github.com/lob/generate-changelog/commit/8945027b693d5653052c031d2ac450250bd6bc41))
+
+##### Bug Fixes
+
+* **writer:** fix the issue with one digit month/days ([bd566622](https://github.com/lob/generate-changelog/commit/bd566622423080c92c531e01fc8d03568bb92740))
+
 #### 1.2.1 (2017-6-13)
 
 ##### Bug Fixes
