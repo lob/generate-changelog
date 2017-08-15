@@ -53,14 +53,14 @@ $ changelog -h
 
   Options:
 
-    -h, --help            output usage information
-    -V, --version         output the version number
-    -p, --patch           create a patch changelog
-    -m, --minor           create a minor changelog
-    -M, --major           create a major changelog
-    -x, --exclude         exclude selected commit types (comma separated)
-    -f, --file [file]     file to write to, defaults to ./CHANGELOG.md, use - for stdout
-    -u, --repo-url [url]  specify the repo URL for commit links, defaults to checking the package.json
+    -h, --help             output usage information
+    -V, --version          output the version number
+    -p, --patch            create a patch changelog
+    -m, --minor            create a minor changelog
+    -M, --major            create a major changelog
+    -x, --exclude <types>  exclude selected commit types (comma separated)
+    -f, --file [file]      file to write to, defaults to ./CHANGELOG.md, use - for stdout
+    -u, --repo-url [url]   specify the repo URL for commit links, defaults to checking the package.json
 
 ```
 
