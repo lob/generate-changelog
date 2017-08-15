@@ -1,3 +1,9 @@
+a2c164a718e45d7d3c5e37eec2008a3ebf371e36
+fix(testing): did some testing with breaking change
+
+BREAKING CHANGE: breaking change message generated from commitizen
+
+===END===
 ada45fed0bf5a9bbdcf32e1c46176c4cbdcef329
 Merge pull request #1 from lob/testing
 feat(testing): did some testing
