@@ -1,3 +1,9 @@
+#### 1.3.1 (2017-08-15)
+
+##### Bug Fixes
+
+* **exclude:** allow arguments to be passed in to -x ([3faf08a6](https://github.com/lob/generate-changelog/commit/3faf08a634449e057f67eaa9c13872f53c8127d0))
+
 ### 1.3.0 (2017-06-25)
 
 ##### New Features
