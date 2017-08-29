@@ -154,9 +154,10 @@ describe('package', function () {
 
       return Package.calculateNewVersion()
       .then(function (version) {
-        Expect(version).to.eql(null);
+        Expect(version).to.be.null;
       });
     });
+
   });
 
 });

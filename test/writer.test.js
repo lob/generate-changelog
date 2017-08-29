@@ -50,7 +50,7 @@ describe('writer', function () {
       .then(function (changelog) {
         var heading = changelog.split('\n')[0];
 
-        Expect(heading).to.equal('## ' + new Date().toJSON().slice(0,10));
+        Expect(heading).to.equal('## ' + new Date().toJSON().slice(0, 10));
       });
     });
 
