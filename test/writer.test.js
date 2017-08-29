@@ -43,6 +43,17 @@ describe('writer', function () {
       });
     });
 
+    it('keeps only the date if no version is specified', function () {
+      var options = { major: true };
+
+      return Writer.markdown(false, [], options)
+      .then(function (changelog) {
+        var heading = changelog.split('\n')[0];
+
+        Expect(heading).to.equal('## ' + new Date().toJSON().slice(0, 10));
+      });
+    });
+
     it('flushes out a commit type with its full name', function () {
       var commits = [
         { type: 'feat', category: 'testing', subject: 'did some testing', hash: '1234567890' }

@@ -148,6 +148,16 @@ describe('package', function () {
       });
     });
 
+    it('returns null if no version is specified', function () {
+      Package.getUserPackage.restore();
+      Sinon.stub(Package, 'getUserPackage').returns(Bluebird.resolve({ version: '' }));
+
+      return Package.calculateNewVersion()
+      .then(function (version) {
+        Expect(version).to.be.null;
+      });
+    });
+
   });
 
 });
