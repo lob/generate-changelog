@@ -1,3 +1,21 @@
+### 1.4.0 (2017-08-29)
+
+##### Chores
+
+* **lint:** update eslint-config-lob ([725beb61](https://github.com/lob/generate-changelog/commit/725beb611965384d1807998dda055fbceb63e937))
+
+##### New Features
+
+* **package:** Add support for missing version (#25) ([7e91a601](https://github.com/lob/generate-changelog/commit/7e91a601f4708c8f03d15bfebb34bcd5eba073dc))
+
+##### Bug Fixes
+
+* **npm:** ignore all unnecessary files in .npmignore ([fe7c3b66](https://github.com/lob/generate-changelog/commit/fe7c3b6643b568739c8ac2b6a326385ddff25fe5))
+
+##### Tests
+
+* **travis:** run against newer versions of node ([f7c3ba9b](https://github.com/lob/generate-changelog/commit/f7c3ba9b52c7ae91808d3408c480e0eef88c30e0))
+
 #### 1.3.1 (2017-08-15)
 
 ##### Bug Fixes
