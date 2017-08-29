@@ -198,7 +198,7 @@ describe('writer', function () {
 
     it('wraps the hash in a link if a repoUrl is provided', function () {
       var category = 'testing';
-      var url = 'https://github.com/lob/generate-changelog'
+      var url = 'https://github.com/lob/generate-changelog';
       var commits = [
         { type: 'feat', category: category, subject: 'did some testing', hash: '1234567890' }
       ];
