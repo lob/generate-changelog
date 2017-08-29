@@ -147,6 +147,7 @@ describe('package', function () {
         Expect(version).to.eql('1.2.3');
       });
     });
+
   });
 
 });
