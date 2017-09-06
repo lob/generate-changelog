@@ -43,7 +43,7 @@ describe('git', function () {
       Sinon.stub(CP, 'execAsync')
         .onFirstCall().returns(Bluebird.resolve(VALID_COMMITS));
 
-      var tagRange = 'aabbccdd..eeffgghh';
+      var tagRange = 'abcdef01..23456789';
 
       return Git.getCommits({ tag: tagRange })
       .then(function () {
