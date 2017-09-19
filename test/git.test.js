@@ -39,7 +39,20 @@ describe('git', function () {
       });
     });
 
-    it('errs if there are no commits yet', function () {
+    it('uses custom revision range if `-t` / `--tag` option was used', function () {
+      Sinon.stub(CP, 'execAsync')
+        .onFirstCall().returns(Bluebird.resolve(VALID_COMMITS));
+
+      var tagRange = 'abcdef01..23456789';
+
+      return Git.getCommits({ tag: tagRange })
+      .then(function () {
+        CP.execAsync.firstCall.calledWithMatch(tagRange);
+        CP.execAsync.restore();
+      });
+    });
+
+    it('errors if there are no commits yet', function () {
       Sinon.stub(CP, 'execAsync')
         .onFirstCall().returns(Bluebird.resolve('v1.2.3'))
         .onSecondCall().returns(Bluebird.reject());
