@@ -1,3 +1,13 @@
+### 1.5.0 (2017-09-20)
+
+##### New Features
+
+* **git:** generate from specific tag (#28) ([cadb4e22](https://github.com/lob/generate-changelog/commit/cadb4e22a20632a7d765a3d97fe9727abb2ce228))
+
+##### Bug Fixes
+
+* **git:** fix error throwing "stdout maxBuffer exceeded" (#29) ([5f515803](https://github.com/lob/generate-changelog/commit/5f515803204d8573b1dfbcf580d44effdb9949ff))
+
 ### 1.4.0 (2017-08-29)
 
 ##### Chores
