@@ -216,6 +216,49 @@ describe('writer', function () {
       });
     });
 
+    it('wraps an issue/pr number if a repoUrl is provided', function () {
+      var category = 'testing';
+      var url = 'https://github.com/lob/generate-changelog';
+      var pr = 7;
+      var commits = [
+        { type: 'feat', category: category, subject: 'Merge pull request #' + pr + 'from some/repo', hash: '1234567890' }
+      ];
+
+      return Writer.markdown(VERSION, commits, { repoUrl: url })
+      .then(function (changelog) {
+        return changelog.split('\n');
+      })
+      .filter(function (line) {
+        return line.indexOf(category) > -1;
+      })
+      .get(0)
+      .then(function (line) {
+        Expect(line).to.contain('[#' + pr + '](' + url + '/pull/' + pr + ')');
+      });
+    });
+
+    it('wraps more than one issue/pr numbers in one commit if a repoUrl is provided', function () {
+      var category = 'testing';
+      var url = 'https://github.com/lob/generate-changelog';
+      var prs = [7, 42];
+      var commits = [
+        { type: 'feat', category: category, subject: 'fixes (#' + prs[0] + '): added some (#' + prs[1] + ')', hash: '1234567890' }
+      ];
+
+      return Writer.markdown(VERSION, commits, { repoUrl: url })
+      .then(function (changelog) {
+        return changelog.split('\n');
+      })
+      .filter(function (line) {
+        return line.indexOf(category) > -1;
+      })
+      .get(0)
+      .then(function (line) {
+        Expect(line).to.contain('[#' + prs[0] + '](' + url + '/pull/' + prs[0] + ')');
+        Expect(line).to.contain('[#' + prs[1] + '](' + url + '/pull/' + prs[1] + ')');
+      });
+    });
+
   });
 
 });
