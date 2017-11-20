@@ -1,3 +1,9 @@
+### 1.6.0 (2017-11-20)
+
+##### New Features
+
+* **writer:** add links to PRs numbers in commits text ([#31](https://github.com/lob/generate-changelog/pull/31)) ([7015d433](https://github.com/lob/generate-changelog/commit/7015d4330da9c10e32d6d259a89beb096a904c55))
+
 ### 1.5.0 (2017-09-20)
 
 ##### New Features
