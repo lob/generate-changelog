@@ -62,6 +62,7 @@ $ changelog -h
     -x, --exclude <types>  exclude selected commit types (comma separated)
     -f, --file [file]      file to write to, defaults to ./CHANGELOG.md, use - for stdout
     -u, --repo-url [url]   specify the repo URL for commit links, defaults to checking the package.json
+    -s, --sub-directory <path>  specify an explicit relatvie path to a sub-directory
 
 ```
 
