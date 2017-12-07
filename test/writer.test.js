@@ -8,6 +8,26 @@ var VERSION = '1.2.3';
 
 describe('writer', function () {
 
+  describe('getCommitUrl', function () {
+
+    it('makes a valid URL for a BitBucket repository', function () {
+      var url = 'https://bitbucket.org/lob/generate-changelog';
+      var commitHash = '1234567890';
+
+      var linkUrl = Writer.getCommitUrl(url, commitHash);
+      Expect(linkUrl).to.equal(url + '/commits/' + commitHash);
+    });
+
+    it('makes a valid URL for a GitHub repository', function () {
+      var url = 'https://github.com/lob/generate-changelog';
+      var commitHash = '1234567890';
+
+      var linkUrl = Writer.getCommitUrl(url, commitHash);
+      Expect(linkUrl).to.equal(url + '/commit/' + commitHash);
+    });
+
+  });
+
   describe('markdown', function () {
 
     it('makes heading h2 if major version', function () {
