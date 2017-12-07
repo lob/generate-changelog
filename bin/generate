@@ -9,10 +9,15 @@ var File      = require('../lib/file');
 
 CLI.parse(process.argv);
 
-return Bluebird.all([
-  Changelog.generate(CLI),
-  File.readIfExists(CLI.file)
-])
+return File.normalizeFilePath(CLI.file, CLI.subDirectory)
+.then(function (normalizedPath) {
+  CLI.file = normalizedPath;
+
+  return Bluebird.all([
+    Changelog.generate(CLI),
+    File.readIfExists(CLI.file)
+  ]);
+})
 .spread(function (newLogs, oldLogs) {
   return File.writeToFile(CLI.file, newLogs + oldLogs);
 })
