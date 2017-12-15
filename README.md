@@ -22,7 +22,7 @@ $ npm i generate-changelog -g # install it globally
 To use this module, your commit messages have to be in this format:
 
 ```
-type(category): description
+type(category): description [flags]
 ```
 
 Where `type` is one of the following:
@@ -39,6 +39,10 @@ Where `type` is one of the following:
 * `revert`
 * `style`
 * `test`
+
+Where `flags` is one or more of the following (comma separated):
+
+* `breaking`: alters `type` to be a breaking change
 
 And `category` can be anything of your choice. If you use a type not found in the list (but it still follows the same format of the message), it'll be grouped under `other`.
 
