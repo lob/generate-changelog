@@ -76,10 +76,12 @@ describe('git', function () {
 
       return Git.getCommits()
       .then(function (commits) {
-        Expect(commits).to.have.length(5);
+        Expect(commits).to.have.length(6);
         Expect(commits[0]).to.have.property('type');
         Expect(commits[0]).to.have.property('category');
         Expect(commits[0]).to.have.property('subject');
+
+        Expect(commits[5].type).to.eql('breaking');
         CP.execAsync.restore();
       });
     });
@@ -101,7 +103,7 @@ describe('git', function () {
         .onFirstCall().returns(Bluebird.resolve('v1.2.3'))
         .onSecondCall().returns(Bluebird.resolve(VALID_COMMITS));
 
-      return Git.getCommits({ exclude: ['chore', 'style'] })
+      return Git.getCommits({ exclude: ['chore', 'style', 'breaking'] })
       .then(function (commits) {
         Expect(commits).to.have.length(3);
         CP.execAsync.restore();
