@@ -27,6 +27,10 @@ feat: api change [breaking]
 
 ===END===
 e45d7d3c5e37eec2008a3ebf371e93a2c164a720
-chore: api change [ breaking ] 2.0.0
+chore: api change [ breaking ]
+
+===END===
+e45d7d3c5e37eec2008a3ebf371e93a2c164a721
+feat: [breaking] non flagged change
 
 ===END===

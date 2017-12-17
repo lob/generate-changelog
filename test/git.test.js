@@ -76,7 +76,7 @@ describe('git', function () {
 
       return Git.getCommits()
       .then(function (commits) {
-        Expect(commits).to.have.length(7);
+        Expect(commits).to.have.length(8);
         Expect(commits[0]).to.have.property('type');
         Expect(commits[0]).to.have.property('category');
         Expect(commits[0]).to.have.property('subject');
@@ -121,7 +121,7 @@ describe('git', function () {
 
       return Git.getCommits({ exclude: ['chore', 'style', 'breaking'] })
       .then(function (commits) {
-        Expect(commits).to.have.length(3);
+        Expect(commits).to.have.length(4);
         CP.execAsync.restore();
       });
     });
