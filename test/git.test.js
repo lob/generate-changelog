@@ -76,12 +76,28 @@ describe('git', function () {
 
       return Git.getCommits()
       .then(function (commits) {
-        Expect(commits).to.have.length(6);
+        Expect(commits).to.have.length(7);
         Expect(commits[0]).to.have.property('type');
         Expect(commits[0]).to.have.property('category');
         Expect(commits[0]).to.have.property('subject');
 
-        Expect(commits[5].type).to.eql('breaking');
+        CP.execAsync.restore();
+      });
+    });
+
+    it('correctly applies flags [breaking]', function () {
+      Sinon.stub(CP, 'execAsync')
+        .onFirstCall().returns(Bluebird.resolve('v1.2.3'))
+        .onSecondCall().returns(Bluebird.resolve(VALID_COMMITS));
+
+      return Git.getCommits()
+      .then(function (commits) {
+        var breakingCommits = commits.filter(function (commit) {
+          return commit.type === 'breaking';
+        });
+
+        Expect(breakingCommits).to.have.length(2);
+
         CP.execAsync.restore();
       });
     });
