@@ -27,6 +27,7 @@ type(category): description [flags]
 
 Where `type` is one of the following:
 
+* `breaking`
 * `build`
 * `ci`
 * `chore`
@@ -40,7 +41,7 @@ Where `type` is one of the following:
 * `style`
 * `test`
 
-Where `flags` is one or more of the following (comma separated):
+Where `flags` is an optional comma-separated list of one or more of the following (must be surrounded in square brackets):
 
 * `breaking`: alters `type` to be a breaking change
 
