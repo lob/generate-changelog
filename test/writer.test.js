@@ -26,6 +26,15 @@ describe('writer', function () {
       Expect(linkUrl).to.equal(url + '/commit/' + commitHash);
     });
 
+    it('makes a valid URL for a Gitlab repository', function () {
+      var url = 'https://gitlab.com/lob/generate-changelog.git';
+      var expectedUrl = 'https://gitlab.com/lob/generate-changelog'
+      var commitHash = '1234567890';
+
+      var linkUrl = Writer.getCommitUrl(url, commitHash);
+      Expect(linkUrl).to.equal(expectedUrl + '/commit/' + commitHash);
+    });
+
   });
 
   describe('markdown', function () {
