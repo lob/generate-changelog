@@ -28,7 +28,7 @@ describe('writer', function () {
 
     it('makes a valid URL for a Gitlab repository', function () {
       var url = 'https://gitlab.com/lob/generate-changelog.git';
-      var expectedUrl = 'https://gitlab.com/lob/generate-changelog'
+      var expectedUrl = 'https://gitlab.com/lob/generate-changelog';
       var commitHash = '1234567890';
 
       var linkUrl = Writer.getCommitUrl(url, commitHash);
