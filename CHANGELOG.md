@@ -1,3 +1,9 @@
+#### 1.7.1 (2018-03-28)
+
+##### Bug Fixes
+
+* **writer:**  fix commit URL for Gitlab repos ([#40](https://github.com/lob/generate-changelog/pull/40)) ([656a2bcc](https://github.com/lob/generate-changelog/commit/656a2bcc589433cf7f9982e5ca4d0493a56126eb))
+
 ### 1.7.0 (2017-12-17)
 
 ##### New Features
