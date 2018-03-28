@@ -126,6 +126,20 @@ describe('git', function () {
       });
     });
 
+    it('uses subDirectory for filtering git log command when `-s` / `--sub-directory` option was used', function () {
+      Sinon.stub(CP, 'execAsync')
+        .onFirstCall().returns(Bluebird.resolve('1.2.3.4'))
+        .onSecondCall().returns(Bluebird.resolve(VALID_COMMITS));
+
+      var subDirectory = 'subdirectory';
+
+      return Git.getCommits({ subDirectory: subDirectory })
+      .then(function () {
+        CP.execAsync.secondCall.calledWithMatch(new RegExp('-- ' + subDirectory + '$'));
+        CP.execAsync.restore();
+      });
+    });
+
   });
 
 });

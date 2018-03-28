@@ -56,17 +56,19 @@ $ changelog -h
 
   Generate a changelog from git commits.
 
+
   Options:
 
-    -h, --help             output usage information
-    -V, --version          output the version number
-    -p, --patch            create a patch changelog
-    -m, --minor            create a minor changelog
-    -M, --major            create a major changelog
-    -t, --tag <range>      generate from specific tag or range (e.g. v1.2.3 or v1.2.3..v1.2.4)
-    -x, --exclude <types>  exclude selected commit types (comma separated)
-    -f, --file [file]      file to write to, defaults to ./CHANGELOG.md, use - for stdout
-    -u, --repo-url [url]   specify the repo URL for commit links, defaults to checking the package.json
+    -V, --version               output the version number
+    -p, --patch                 create a patch changelog
+    -m, --minor                 create a minor changelog
+    -M, --major                 create a major changelog
+    -t, --tag <range>           generate from specific tag or range (e.g. v1.2.3 or v1.2.3..v1.2.4)
+    -x, --exclude <types>       exclude selected commit types (comma separated)
+    -f, --file [file]           file to write to, defaults to ./CHANGELOG.md, use - for stdout
+    -u, --repo-url [url]        specify the repo URL for commit links, defaults to checking the package.json
+    -s, --sub-directory <path>  specify a path to be passed into git log
+    -h, --help                  output usage information
 
 ```
 
@@ -91,6 +93,11 @@ The way that I would recommend using this module would be the way it's being use
 "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
 "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
 ```
+
+### Sub-directory
+
+Setting up the `--sub-directory` flag will run the `git log` command under the specified path.
+When combined with the `--file` flag, the input/output file would be ***relative to the sub-directory*** specified in the previous flag.
 
 ## Testing
 

@@ -2,6 +2,7 @@
 'use strict';
 
 var Bluebird = require('bluebird');
+var Path     = require('path');
 
 var CLI       = require('../lib/cli');
 var Changelog = require('../lib');
@@ -9,12 +10,14 @@ var File      = require('../lib/file');
 
 CLI.parse(process.argv);
 
+var filePath = Path.join(CLI.subDirectory, CLI.file);
+
 return Bluebird.all([
   Changelog.generate(CLI),
-  File.readIfExists(CLI.file)
+  File.readIfExists(filePath)
 ])
 .spread(function (newLogs, oldLogs) {
-  return File.writeToFile(CLI.file, newLogs + oldLogs);
+  return File.writeToFile(filePath, newLogs + oldLogs);
 })
 .catch(function (err) {
   console.error(err);
