@@ -96,7 +96,7 @@ The way that I would recommend using this module would be the way it's being use
 To use a specific version rather than a generated value, you can use `-v VERSION` or `--version VERSION` rather than the major, minor or patch argument switches. For example, using npm's version `scripts` object in your `package.json` the previous `release` scripts could be condensed to:
 
 ```json
-"postversion": "npm version [major|minor|patch] 'bumping version' && changelog -v $npm_package_version && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && git push origin && git push origin --tags"
+"postversion": "changelog -v $npm_package_version && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && git push origin && git push origin --tags"
 ```
 
 ## Testing
