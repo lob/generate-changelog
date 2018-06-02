@@ -141,8 +141,8 @@ describe('package', function () {
       });
     });
 
-    it('return the version value if version is provided', function () {
-      var options = { version: '1.0.0' };
+    it('return the version value if semver is provided', function () {
+      var options = { semver: '1.0.0' };
 
       return Package.calculateNewVersion(options)
       .then(function (version) {
