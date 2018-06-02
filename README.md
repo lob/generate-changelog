@@ -58,15 +58,16 @@ $ changelog -h
 
   Options:
 
-    -h, --help             output usage information
-    -V, --version          output the version number
-    -p, --patch            create a patch changelog
-    -m, --minor            create a minor changelog
-    -M, --major            create a major changelog
-    -t, --tag <range>      generate from specific tag or range (e.g. v1.2.3 or v1.2.3..v1.2.4)
-    -x, --exclude <types>  exclude selected commit types (comma separated)
-    -f, --file [file]      file to write to, defaults to ./CHANGELOG.md, use - for stdout
-    -u, --repo-url [url]   specify the repo URL for commit links, defaults to checking the package.json
+    -h, --help               output usage information
+    -V, --version            output the version number
+    -p, --patch              create a patch changelog
+    -m, --minor              create a minor changelog
+    -M, --major              create a major changelog
+    -v, --version <version>  the version value (e.g. v1.2.3)
+    -t, --tag <range>        generate from specific tag or range (e.g. v1.2.3 or v1.2.3..v1.2.4)
+    -x, --exclude <types>    exclude selected commit types (comma separated)
+    -f, --file [file]        file to write to, defaults to ./CHANGELOG.md, use - for stdout
+    -u, --repo-url [url]     specify the repo URL for commit links, defaults to checking the package.json
 
 ```
 
@@ -90,6 +91,12 @@ The way that I would recommend using this module would be the way it's being use
 "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
 "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
 "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+```
+
+To use a specific version rather than a generated value, you can use `-v VERSION` or `--version VERSION` rather than the major, minor or patch argument switches. For example, using npm's version `scripts` object in your `package.json` the previous `release` scripts could be condensed to:
+
+```json
+"postversion": "npm version [major|minor|patch] 'bumping version' && changelog -v $npm_package_version && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && git push origin && git push origin --tags"
 ```
 
 ## Testing
