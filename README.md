@@ -58,16 +58,16 @@ $ changelog -h
 
   Options:
 
-    -h, --help               output usage information
-    -V, --version            output the version number
-    -p, --patch              create a patch changelog
-    -m, --minor              create a minor changelog
-    -M, --major              create a major changelog
-    -v, --version <version>  the version value (e.g. v1.2.3)
-    -t, --tag <range>        generate from specific tag or range (e.g. v1.2.3 or v1.2.3..v1.2.4)
-    -x, --exclude <types>    exclude selected commit types (comma separated)
-    -f, --file [file]        file to write to, defaults to ./CHANGELOG.md, use - for stdout
-    -u, --repo-url [url]     specify the repo URL for commit links, defaults to checking the package.json
+    -h, --help              output usage information
+    -V, --version           output the version number
+    -p, --patch             create a patch changelog
+    -m, --minor             create a minor changelog
+    -M, --major             create a major changelog
+    -s, --semver <version>  the version value (e.g. v1.2.3)
+    -t, --tag <range>       generate from specific tag or range (e.g. v1.2.3 or v1.2.3..v1.2.4)
+    -x, --exclude <types>   exclude selected commit types (comma separated)
+    -f, --file [file]       file to write to, defaults to ./CHANGELOG.md, use - for stdout
+    -u, --repo-url [url]    specify the repo URL for commit links, defaults to checking the package.json
 
 ```
 
