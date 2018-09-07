@@ -47,7 +47,9 @@ Where `flags` is an optional comma-separated list of one or more of the followin
 
 And `category` can be anything of your choice. If you use a type not found in the list (but it still follows the same format of the message), it'll be grouped under `other`.
 
-You can either run this module as a CLI app that prepends the new logs to a file (recommended):
+### CLI
+
+You can run this module as a CLI app that prepends the new logs to a file (recommended):
 
 ```bash
 $ changelog -h
@@ -67,10 +69,23 @@ $ changelog -h
     -x, --exclude <types>  exclude selected commit types (comma separated)
     -f, --file [file]      file to write to, defaults to ./CHANGELOG.md, use - for stdout
     -u, --repo-url [url]   specify the repo URL for commit links, defaults to checking the package.json
-
 ```
 
-Or you can write a script that calls the `generate` function and does whatever you want with the new logs:
+It's possible to create a `./CHANGELOG.md` file for a specific commit range:
+
+```bash
+generate-changelog 420c945...2a83752
+```
+
+Git tags are supported too:
+
+```bash
+generate-changelog release/3.1.2822...release/3.1.2858
+```
+
+### Code
+
+You can write a script that calls the `generate` function and does whatever you want with the new logs:
 
 ```js
 var Changelog = require('generate-changelog');
