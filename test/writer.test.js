@@ -140,6 +140,26 @@ describe('writer', function () {
       });
     });
 
+    it('does not group uncommon types if unknown types are allowed', function () {
+      var commits = [
+        { type: 'uncommon', category: 'testing', subject: 'did some testing', hash: '1234567890' },
+        { type: 'unknown', category: 'testing', subject: 'did some more testing', hash: '1234567890' }
+      ];
+
+      return Writer.markdown(VERSION, commits, { allowUnknown: true })
+      .then(function (changelog) {
+        return changelog.split('\n');
+      })
+      .filter(function (line) {
+        return line.indexOf('#####') > -1;
+      })
+      .tap(function (lines) {
+        Expect(lines).to.have.length(2);
+        Expect(lines[0]).to.eql('##### Other Changes (uncommon)');
+        Expect(lines[1]).to.eql('##### Other Changes (unknown)');
+      });
+    });
+
     it('keeps a commit category on one line if there is only one commit in it', function () {
       var category = 'testing';
       var subject = 'did some testing';
