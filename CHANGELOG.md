@@ -1,3 +1,19 @@
+#### 1.7.1 (2018-03-28)
+
+##### Bug Fixes
+
+* **writer:**  fix commit URL for Gitlab repos ([#40](https://github.com/lob/generate-changelog/pull/40)) ([656a2bcc](https://github.com/lob/generate-changelog/commit/656a2bcc589433cf7f9982e5ca4d0493a56126eb))
+
+### 1.7.0 (2017-12-17)
+
+##### New Features
+
+* **git:**  add support for breaking changes ([#34](https://github.com/lob/generate-changelog/pull/34)) ([d697b273](https://github.com/lob/generate-changelog/commit/d697b27328f72c30d75202dcf87394564849d69d))
+
+##### Bug Fixes
+
+* **writer:**  fix commit URL for BitBucket repos ([#33](https://github.com/lob/generate-changelog/pull/33)) ([0492e91a](https://github.com/lob/generate-changelog/commit/0492e91a846f18ac797e7aeadd366bd753b9dfa2))
+
 ### 1.6.0 (2017-11-20)
 
 ##### New Features
