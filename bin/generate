@@ -10,7 +10,7 @@ var File      = require('../lib/file');
 
 CLI.parse(process.argv);
 
-var filePath = Path.join(CLI.subDirectory, CLI.file);
+var filePath = CLI.file !== '-' ? Path.join(CLI.subDirectory, CLI.file) : CLI.file;
 
 return Bluebird.all([
   Changelog.generate(CLI),
