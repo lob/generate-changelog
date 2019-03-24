@@ -1,5 +1,7 @@
 'use strict';
 
+var MockDate = require('mockdate');
+
 var Expect = require('chai').expect;
 
 var Writer = require('../lib/writer');
@@ -73,13 +75,16 @@ describe('writer', function () {
     });
 
     it('keeps only the date if no version is specified', function () {
+
+      MockDate.set('Mon Mar 13 2019 07:38:18 GMT+1300');
       var options = { major: true };
 
       return Writer.markdown(false, [], options)
       .then(function (changelog) {
         var heading = changelog.split('\n')[0];
 
-        Expect(heading).to.equal('## ' + new Date().toJSON().slice(0, 10));
+        Expect(heading).to.equal('## 2019-03-13');
+        MockDate.reset();
       });
     });
 
@@ -285,6 +290,20 @@ describe('writer', function () {
       .then(function (line) {
         Expect(line).to.contain('[#' + prs[0] + '](' + url + '/pull/' + prs[0] + ')');
         Expect(line).to.contain('[#' + prs[1] + '](' + url + '/pull/' + prs[1] + ')');
+      });
+    });
+
+    it('has the date formatted correctly', function () {
+
+      MockDate.set('Mon Oct 3 2019 07:38:18 GMT+1300');
+      var options = { major: true };
+
+      return Writer.markdown(false, [], options)
+      .then(function (changelog) {
+        var heading = changelog.split('\n')[0];
+
+        Expect(heading).to.equal('## 2019-10-03');
+        MockDate.reset();
       });
     });
 
