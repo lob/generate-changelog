@@ -1,3 +1,13 @@
+### 1.8.0 (2019-06-25)
+
+##### Documentation Changes
+
+* **readme:**  mention commit ranges ([#43](https://github.com/lob/generate-changelog/pull/43)) ([b4a75c49](https://github.com/lob/generate-changelog/commit/b4a75c49c66b265e768c8d6477a409b5e722b8da))
+
+##### New Features
+
+*  Allow unknown commit types ([#46](https://github.com/lob/generate-changelog/pull/46)) ([b2fb9ff5](https://github.com/lob/generate-changelog/commit/b2fb9ff5517b7be309f6050dd7b557b53668e56b))
+
 #### 1.7.1 (2018-03-28)
 
 ##### Bug Fixes
