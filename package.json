@@ -1,6 +1,6 @@
 {
   "name": "generate-changelog",
-  "version": "1.7.1",
+  "version": "1.8.0",
   "description": "Generate a changelog from git commits.",
   "bin": {
     "generate-changelog": "./bin/generate",
