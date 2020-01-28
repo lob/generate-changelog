@@ -47,6 +47,13 @@ Where `flags` is an optional comma-separated list of one or more of the followin
 
 And `category` can be anything of your choice. If you use a type not found in the list (but it still follows the same format of the message), it'll be grouped under `other`.
 
+### Configuration
+
+You can set custom types by passing configuration object with `types` property. Configuration can be set via either:
+- A `.generate-changelogrc` file, written in YAML or JSON, with optional extensions: `.yaml`/`.yml`/`.json`/`.js`
+- A `generate-changelog.config.js` file that exports an object
+- A `generate-changelog` key in the project's `package.json` file
+
 ### CLI
 
 You can run this module as a CLI app that prepends the new logs to a file (recommended):
