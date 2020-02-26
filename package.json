@@ -40,8 +40,8 @@
   "dependencies": {
     "bluebird": "^3.0.6",
     "commander": "^2.9.0",
-    "cosmiconfig": "^6.0.0",
-    "github-url-from-git": "^1.4.0"
+    "github-url-from-git": "^1.4.0",
+    "rc": "^1.2.8"
   },
   "devDependencies": {
     "chai": "^3.4.1",
