@@ -69,7 +69,7 @@ $ changelog -h
     -x, --exclude <types>  exclude selected commit types (comma separated)
     -f, --file [file]      file to write to, defaults to ./CHANGELOG.md, use - for stdout
     -u, --repo-url [url]   specify the repo URL for commit links, defaults to checking the package.json
-    -a, --allow-unknown    allow unkown commit types
+    -a, --allow-unknown    allow unknown commit types
 ```
 
 It's possible to create a `./CHANGELOG.md` file for a specific commit range:
