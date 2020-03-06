@@ -49,7 +49,7 @@ And `category` can be anything of your choice. If you use a type not found in th
 
 ### Configuration
 
-You can set custom types by passing configuration object with `types` property. Configuration can be set via `.generate-changelogrc` file, written in [INI](https://en.wikipedia.org/wiki/INI_file) or [JSON](http://json.org/example). **No** file extensions (`.json` or `.ini`) should be used.
+You can set custom types by passing a configuration object with the `types` property. Configuration can be set via a `.generate-changelogrc` file, written in [INI](https://en.wikipedia.org/wiki/INI_file) or [JSON](http://json.org/example). **No** file extensions (`.json` or `.ini`) should be used.
 
 ### CLI
 
