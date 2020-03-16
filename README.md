@@ -65,6 +65,7 @@ $ changelog -h
     -p, --patch            create a patch changelog
     -m, --minor            create a minor changelog
     -M, --major            create a major changelog
+    -s, --semver [value]   the version value (e.g. v1.2.3)
     -t, --tag <range>      generate from specific tag or range (e.g. v1.2.3 or v1.2.3..v1.2.4)
     -x, --exclude <types>  exclude selected commit types (comma separated)
     -f, --file [file]      file to write to, defaults to ./CHANGELOG.md, use - for stdout
@@ -106,6 +107,13 @@ The way that I would recommend using this module would be the way it's being use
 "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
 "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
 "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+```
+
+To use a specific version rather than a generated value, you can use `-s VERSION` or `--semver VERSION` rather than the major, minor or patch argument switches. For example, using npm's version `scripts` object in your `package.json` the previous `release` scripts could be condensed to:
+
+```json
+"version": "changelog -s $npm_package_version && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md"
+"postversion": "git push origin && git push origin --tags"
 ```
 
 ## Testing

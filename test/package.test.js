@@ -141,6 +141,15 @@ describe('package', function () {
       });
     });
 
+    it('return the version value if semver is provided', function () {
+      var options = { semver: '1.0.0' };
+
+      return Package.calculateNewVersion(options)
+      .then(function (version) {
+        Expect(version).to.eql('1.0.0');
+      });
+    });
+
     it('leaves the version untouched if none of three options is true', function () {
       return Package.calculateNewVersion()
       .then(function (version) {
