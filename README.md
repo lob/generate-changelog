@@ -108,6 +108,10 @@ The way that I would recommend using this module would be the way it's being use
 "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
 ```
 
+### GitHub Actions
+
+You can run this module in a GitHub Actions workflow using the [generate-changelog-action](https://github.com/marketplace/actions/generate-changelog-action) Action.
+
 ## Testing
 
 To run the test suite, just clone the repository and run the following:
