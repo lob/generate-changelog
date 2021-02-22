@@ -78,10 +78,10 @@ It's possible to create a `./CHANGELOG.md` file for a specific commit range:
 generate-changelog 420c945...2a83752
 ```
 
-Git tags are supported too:
+Git tags are supported too (given you pulled the tags locally):
 
 ```bash
-generate-changelog release/3.1.2822...release/3.1.2858
+generate-changelog -t release/3.1.2822...release/3.1.2858
 ```
 
 ### Code
