@@ -141,6 +141,42 @@ describe('package', function () {
       });
     });
 
+    it('bumps the premajor version if premajor is true', function () {
+      var options = { premajor: true };
+
+      return Package.calculateNewVersion(options)
+      .then(function (version) {
+        Expect(version).to.eql('2.0.0-0');
+      });
+    });
+
+    it('bumps the preminor version if preminor is true', function () {
+      var options = { preminor: true };
+
+      return Package.calculateNewVersion(options)
+      .then(function (version) {
+        Expect(version).to.eql('1.3.0-0');
+      });
+    });
+
+    it('bumps the prepatch version if prepatch is true', function () {
+      var options = { prepatch: true };
+
+      return Package.calculateNewVersion(options)
+      .then(function (version) {
+        Expect(version).to.eql('1.2.4-0');
+      });
+    });
+
+    it('bumps the prerelease version if prerelease is true and the preid is a string', function () {
+      var options = { prerelease: true, preid: 'alpha' };
+
+      return Package.calculateNewVersion(options)
+      .then(function (version) {
+        Expect(version).to.eql('1.2.4-alpha.0');
+      });
+    });
+
     it('leaves the version untouched if none of three options is true', function () {
       return Package.calculateNewVersion()
       .then(function (version) {
