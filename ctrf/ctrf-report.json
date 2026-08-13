@@ -1,0 +1,492 @@
+{
+  "results": {
+    "tool": {
+      "name": "mocha"
+    },
+    "summary": {
+      "tests": 43,
+      "passed": 43,
+      "failed": 0,
+      "pending": 0,
+      "skipped": 0,
+      "other": 0,
+      "start": 1772833660899,
+      "stop": 1772833660918
+    },
+    "tests": [
+      {
+        "name": "file exists resolves if the file exists",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/file.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660900,
+        "stop": 1772833660900
+      },
+      {
+        "name": "file exists rejects if the file does not exist",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/file.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660901,
+        "stop": 1772833660901
+      },
+      {
+        "name": "file readIfExists returns the contents of the file if it exists",
+        "status": "passed",
+        "duration": 1,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/file.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660901,
+        "stop": 1772833660902
+      },
+      {
+        "name": "file readIfExists returns the empty string if it does not exist",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/file.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660902,
+        "stop": 1772833660902
+      },
+      {
+        "name": "file writeToFile writes to the file if the path is a normal path",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/file.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660903,
+        "stop": 1772833660903
+      },
+      {
+        "name": "file writeToFile writes to stdout if path is \"-\"",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/file.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660903,
+        "stop": 1772833660903
+      },
+      {
+        "name": "git getCommits passes in revisions if there is a previous tag",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/git.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660904,
+        "stop": 1772833660904
+      },
+      {
+        "name": "git getCommits does not pass in revisions if there are no previous tags",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/git.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660905,
+        "stop": 1772833660905
+      },
+      {
+        "name": "git getCommits uses custom revision range if `-t` / `--tag` option was used",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/git.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660905,
+        "stop": 1772833660905
+      },
+      {
+        "name": "git getCommits errors if there are no commits yet",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/git.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660906,
+        "stop": 1772833660906
+      },
+      {
+        "name": "git getCommits correctly parses type, category, and subject",
+        "status": "passed",
+        "duration": 1,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/git.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660907,
+        "stop": 1772833660908
+      },
+      {
+        "name": "git getCommits correctly applies flags [breaking]",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/git.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660908,
+        "stop": 1772833660908
+      },
+      {
+        "name": "git getCommits skips malformed commits",
+        "status": "passed",
+        "duration": 1,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/git.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660908,
+        "stop": 1772833660909
+      },
+      {
+        "name": "git getCommits skips any excluded commit types",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/git.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660909,
+        "stop": 1772833660909
+      },
+      {
+        "name": "package getUserPackage pull the package.json from the current directory",
+        "status": "passed",
+        "duration": 1,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/package.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660909,
+        "stop": 1772833660910
+      },
+      {
+        "name": "package getUserPackage errs if there is no package.json",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/package.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660910,
+        "stop": 1772833660910
+      },
+      {
+        "name": "package getUserPackage errs if the package.json is invalid",
+        "status": "passed",
+        "duration": 1,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/package.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660910,
+        "stop": 1772833660911
+      },
+      {
+        "name": "package extractRepoUrl returns null if there is no repo URL",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/package.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660911,
+        "stop": 1772833660911
+      },
+      {
+        "name": "package extractRepoUrl returns the raw URL if it is not a GitHub URL",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/package.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660911,
+        "stop": 1772833660911
+      },
+      {
+        "name": "package extractRepoUrl correctly parses a GitHub URL",
+        "status": "passed",
+        "duration": 1,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/package.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660911,
+        "stop": 1772833660912
+      },
+      {
+        "name": "package calculateNewVersion bumps the major version if major is true",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/package.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660912,
+        "stop": 1772833660912
+      },
+      {
+        "name": "package calculateNewVersion bumps the minor version if minor is true",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/package.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660912,
+        "stop": 1772833660912
+      },
+      {
+        "name": "package calculateNewVersion bumps the patch version if patch is true",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/package.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660912,
+        "stop": 1772833660912
+      },
+      {
+        "name": "package calculateNewVersion leaves the version untouched if none of three options is true",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/package.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660912,
+        "stop": 1772833660912
+      },
+      {
+        "name": "package calculateNewVersion returns null if no version is specified",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/package.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660913,
+        "stop": 1772833660913
+      },
+      {
+        "name": "writer getCommitUrl makes a valid URL for a BitBucket repository",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/writer.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660913,
+        "stop": 1772833660913
+      },
+      {
+        "name": "writer getCommitUrl makes a valid URL for a GitHub repository",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/writer.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660913,
+        "stop": 1772833660913
+      },
+      {
+        "name": "writer getCommitUrl makes a valid URL for a Gitlab repository",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/writer.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660913,
+        "stop": 1772833660913
+      },
+      {
+        "name": "writer markdown makes heading h2 if major version",
+        "status": "passed",
+        "duration": 2,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/writer.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660913,
+        "stop": 1772833660915
+      },
+      {
+        "name": "writer markdown makes heading h3 if minor version",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/writer.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660915,
+        "stop": 1772833660915
+      },
+      {
+        "name": "writer markdown makes heading h4 if minor version",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/writer.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660915,
+        "stop": 1772833660915
+      },
+      {
+        "name": "writer markdown keeps only the date if no version is specified",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/writer.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660915,
+        "stop": 1772833660915
+      },
+      {
+        "name": "writer markdown flushes out a commit type with its full name",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/writer.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660916,
+        "stop": 1772833660916
+      },
+      {
+        "name": "writer markdown uses the default type name for uncommon types",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/writer.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660916,
+        "stop": 1772833660916
+      },
+      {
+        "name": "writer markdown groups all uncommon types together",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/writer.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660916,
+        "stop": 1772833660916
+      },
+      {
+        "name": "writer markdown does not group uncommon types if unknown types are allowed",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/writer.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660916,
+        "stop": 1772833660916
+      },
+      {
+        "name": "writer markdown keeps a commit category on one line if there is only one commit in it",
+        "status": "passed",
+        "duration": 1,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/writer.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660916,
+        "stop": 1772833660917
+      },
+      {
+        "name": "writer markdown breaks a commit category onto its own line if there is more than one commit in it",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/writer.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660917,
+        "stop": 1772833660917
+      },
+      {
+        "name": "writer markdown omits commit category if there was no category defined",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/writer.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660917,
+        "stop": 1772833660917
+      },
+      {
+        "name": "writer markdown trims the commit hash to only 8 chars",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/writer.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660917,
+        "stop": 1772833660917
+      },
+      {
+        "name": "writer markdown wraps the hash in a link if a repoUrl is provided",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/writer.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660917,
+        "stop": 1772833660917
+      },
+      {
+        "name": "writer markdown wraps an issue/pr number if a repoUrl is provided",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/writer.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660918,
+        "stop": 1772833660918
+      },
+      {
+        "name": "writer markdown wraps more than one issue/pr numbers in one commit if a repoUrl is provided",
+        "status": "passed",
+        "duration": 0,
+        "retries": 0,
+        "flaky": false,
+        "filePath": "/Users/vikita.bhandari/Documents/qa-coverage/repos/generate-changelog/test/writer.test.js",
+        "rawStatus": "passed",
+        "start": 1772833660918,
+        "stop": 1772833660918
+      }
+    ]
+  }
+}

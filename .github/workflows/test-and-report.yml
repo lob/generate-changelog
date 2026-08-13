@@ -1,0 +1,97 @@
+name: Tests & QA Reporting
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [18, 20]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install dependencies
+        run: npm install
+
+      # ── Unit Tests with Coverage ──
+      - name: Run tests with coverage
+        run: npm test
+
+      - name: Run tests with CTRF reporter
+        run: npx mocha test --recursive --timeout 30000 --reporter mocha-ctrf-json-reporter
+        if: always()
+
+      - name: Run tests with JUnit reporter
+        run: npx mocha test --recursive --timeout 30000 --reporter mocha-junit-reporter --reporter-options mochaFile=test-results/unit-junit.xml
+        if: always()
+
+      - name: Publish Test Results (CTRF)
+        uses: ctrf-io/github-test-reporter@v1
+        with:
+          report-path: 'ctrf/*.json'
+          title: 'Unit Tests'
+        if: always()
+
+      - name: Upload coverage to Codecov
+        if: matrix.node == 20
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage/lcov.info
+          flags: unit
+          name: unit-tests
+          fail_ci_if_error: false
+
+      - name: Upload test results to Codecov
+        if: ${{ !cancelled() && matrix.node == 20 }}
+        uses: codecov/test-results-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: test-results/unit-junit.xml
+          flags: unit
+          name: unit-test-results
+          fail_ci_if_error: false
+
+      # ── Test Summary ──
+      - name: Generate test summary
+        if: always() && matrix.node == 20
+        run: |
+          echo "## 📊 Test Metrics Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          UNIT_COUNT=$(find test -name "*.test.js" ! -name "setup.test.js" | wc -l | tr -d ' ')
+
+          echo "### Test File Counts" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Type | File Count |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|------------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Unit test files | ${UNIT_COUNT} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Integration test files | 0 |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Total** | **${UNIT_COUNT}** |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          echo "### Coverage Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f coverage/lcov.info ]; then
+            LINES=$(grep -c "^DA:" coverage/lcov.info 2>/dev/null || echo "0")
+            HIT=$(grep "^DA:" coverage/lcov.info 2>/dev/null | grep -v ",0$" | wc -l | tr -d ' ')
+            if [ "$LINES" -gt 0 ]; then
+              PCT=$(awk "BEGIN {printf \"%.1f\", ($HIT/$LINES)*100}")
+            else
+              PCT="N/A"
+            fi
+            echo "| Flag | Lines Tracked | Lines Hit | Coverage |" >> $GITHUB_STEP_SUMMARY
+            echo "|------|---------------|-----------|----------|" >> $GITHUB_STEP_SUMMARY
+            echo "| Unit | ${LINES} | ${HIT} | ${PCT}% |" >> $GITHUB_STEP_SUMMARY
+          fi

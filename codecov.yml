@@ -1,0 +1,31 @@
+codecov:
+  require_ci_to_pass: false
+
+coverage:
+  precision: 2
+  round: down
+  status:
+    project:
+      default:
+        target: auto
+        threshold: 1%
+      unit:
+        target: auto
+        flags:
+          - unit
+    patch:
+      default:
+        target: auto
+
+flags:
+  unit:
+    paths:
+      - lib/
+    carryforward: true
+
+component_management:
+  individual_components:
+    - component_id: unit_tests
+      name: Unit Tests
+      flag_regexes:
+        - "^unit$"
