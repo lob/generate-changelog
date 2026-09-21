@@ -126,6 +126,30 @@ describe('git', function () {
       });
     });
 
+    it('contains any included commit categories', function () {
+      Sinon.stub(CP, 'execAsync')
+        .onFirstCall().returns(Bluebird.resolve('v1.2.3'))
+        .onSecondCall().returns(Bluebird.resolve(VALID_COMMITS));
+
+      return Git.getCommits({ categories: ['release', 'testing'] })
+      .then(function (commits) {
+        Expect(commits).to.have.length(3);
+        CP.execAsync.restore();
+      });
+    });
+
+    it('correctly contains excluded commit type and included commit categories', function () {
+      Sinon.stub(CP, 'execAsync')
+        .onFirstCall().returns(Bluebird.resolve('v1.2.3'))
+        .onSecondCall().returns(Bluebird.resolve(VALID_COMMITS));
+
+      return Git.getCommits({ exclude: ['chore'], categories: ['release', 'testing'] })
+      .then(function (commits) {
+        Expect(commits).to.have.length(2);
+        CP.execAsync.restore();
+      });
+    });
+
   });
 
 });
