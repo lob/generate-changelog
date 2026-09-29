@@ -47,6 +47,10 @@ Where `flags` is an optional comma-separated list of one or more of the followin
 
 And `category` can be anything of your choice. If you use a type not found in the list (but it still follows the same format of the message), it'll be grouped under `other`.
 
+### Configuration
+
+You can set custom types by passing a configuration object with the `types` property. Configuration can be set via a `.generate-changelogrc` file, written in [INI](https://en.wikipedia.org/wiki/INI_file) or [JSON](http://json.org/example). **No** file extensions (`.json` or `.ini`) should be used.
+
 ### CLI
 
 You can run this module as a CLI app that prepends the new logs to a file (recommended):
